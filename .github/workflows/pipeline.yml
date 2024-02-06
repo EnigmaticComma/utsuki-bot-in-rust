@@ -1,0 +1,35 @@
+name: 'Workflow'
+runs-on: self-hosted
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  workflow:
+    name: 'Workflow'
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: build
+        uses: docker/build-push-action@v5
+        with:
+          push: false
+          tags: 'utsuki-bot'
+          file: Dockerfile.arm
+      - name: Add .env file
+        uses: mobiledevops/secret-to-file-action@v1
+        with:
+          base64-encoded-secret: ${{ secrets.ENVS }}
+          filename: ".env"
+          is-executable: false
+          working-directory: "./"
