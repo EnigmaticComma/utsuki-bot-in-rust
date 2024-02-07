@@ -1,6 +1,7 @@
 
 # Utsuki Discord Bot in Rust
 
+[![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)](https://rust-lang.org/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Chrisdbhr/utsuki-bot-in-rust?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/Chrisdbhr/utsuki-bot-in-rust?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/Chrisdbhr/utsuki-bot-in-rust?style=for-the-badge)
