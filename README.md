@@ -1,9 +1,9 @@
 
 # Utsuki Discord Bot in Rust
 
-![GitHub repo size](https://img.shields.io/github/repo-size/utsuki-bot-in-rust/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/utsuki-bot-in-rust/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/utsuki-bot-in-rust/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Chrisdbhr/utsuki-bot-in-rust?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/Chrisdbhr/utsuki-bot-in-rust?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Chrisdbhr/utsuki-bot-in-rust?style=for-the-badge)
 [![Workflow](https://img.shields.io/github/actions/workflow/status/Chrisdbhr/utsuki-bot-in-rust/pipeline.yml?style=for-the-badge)](https://github.com/Chrisdbhr/utsuki-bot-in-rust/actions/workflows/pipeline.yml)
 
 <img src="https://chrisdbhr.github.io/images/thumbs/utsuki-rust-bot-banner.jpg" alt="Utsuki Bot Banner">
