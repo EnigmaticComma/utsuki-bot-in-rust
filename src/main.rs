@@ -10,14 +10,30 @@ async fn age(
     ctx: Context<'_>,
     #[description = "Selected user"] user: Option<serenity::User>,
 ) -> Result<(), Error> {
+    println!("Starting age command!");
     let u = user.as_ref().unwrap_or_else(|| ctx.author());
     let response = format!("{}'s account was created at {}", u.name, u.created_at());
     ctx.say(response).await?;
+    println!("{} executed age command!", u.name);
+    Ok(())
+}
+
+#[poise::command(slash_command)]
+async fn avatar(
+    ctx: Context<'_>,
+    #[description = "User to get avatar of"] user: Option<serenity::User>,
+) -> Result<(), Error> {
+    println!("Starting avatar command!");
+    let user = user.unwrap_or_else(|| *ctx.author());
+    let avatar_url = user.face().await;
+    ctx.send(avatar_url).await?;
+    println!("{} executed avatar command!", user.name);
     Ok(())
 }
 
 #[tokio::main]
 async fn main() {
+    println!("Starting Utsuki Discord Bot");
     let token = std::env::var("DISCORD_TOKEN_UTSUKI").expect("missing DISCORD_TOKEN_UTSUKI");
     let intents = serenity::GatewayIntents::non_privileged();
 
@@ -38,4 +54,5 @@ async fn main() {
         .framework(framework)
         .await;
     client.unwrap().start().await.unwrap();
+    println!("Utsuki Discord Bot started!");
 }
