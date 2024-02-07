@@ -17,6 +17,10 @@ jobs:
       run:
         shell: bash
     steps:
+      - uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
       - name: checkout
         uses: actions/checkout@v3
       - name: build
@@ -29,3 +33,7 @@ jobs:
         run: docker rm -f utsuki-bot
       - name: run
         run: docker run --name utsuki-bot -e DISCORD_TOKEN_UTSUKI=${{ secrets.DISCORD_TOKEN }} -d --restart=always utsuki-bot
+      - uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
