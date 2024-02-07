@@ -1,5 +1,4 @@
 name: 'Workflow'
-runs-on: self-hosted
 
 on:
   push:
@@ -26,10 +25,7 @@ jobs:
           push: false
           tags: 'utsuki-bot'
           file: Dockerfile.arm
-      - name: Add .env file
-        uses: mobiledevops/secret-to-file-action@v1
-        with:
-          base64-encoded-secret: ${{ secrets.ENVS }}
-          filename: ".env"
-          is-executable: false
-          working-directory: "./"
+      - name: stop previous container
+        run: docker rm -f utsuki-bot
+      - name: run
+        run: docker run --name utsuki-bot -e DISCORD_TOKEN_UTSUKI=${{ secrets.DISCORD_TOKEN }} utsuki-bot
