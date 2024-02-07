@@ -28,4 +28,4 @@ jobs:
       - name: stop previous container
         run: docker rm -f utsuki-bot
       - name: run
-        run: docker run --name utsuki-bot -e DISCORD_TOKEN_UTSUKI=${{ secrets.DISCORD_TOKEN }} -d utsuki-bot
+        run: docker run --name utsuki-bot -e DISCORD_TOKEN_UTSUKI=${{ secrets.DISCORD_TOKEN }} -d --restart:always utsuki-bot
