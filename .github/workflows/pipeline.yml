@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: utsuki-bot
-          path: ./target/release
+          path: ./target/release/utsuki-bot
 
 
   build-docker:
@@ -63,7 +63,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: utsuki-bot
-          path: ./target/release
+          path: ./target/release/utsuki-bot
 
       - name: build
         uses: docker/build-push-action@v5
