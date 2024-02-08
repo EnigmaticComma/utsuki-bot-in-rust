@@ -42,6 +42,12 @@ jobs:
           command: build
           args: --target aarch64-unknown-linux-gnu --release
 
+      - name: Upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: utsuki-bot
+          path: /app/target/release/utsuki-bot
+
 
   build-docker:
     name: 'Build Docker'
@@ -53,12 +59,23 @@ jobs:
       run:
         shell: bash
     steps:
+      - name: Download binary
+        uses: actions/download-artifact@v4
+        with:
+          name: utsuki-bot
+          path: /app/target/release
+
       - name: build
         uses: docker/build-push-action@v5
         with:
           push: false
           tags: 'utsuki-bot'
           file: Dockerfile.arm
+
+      - name: Upload docker image
+        uses: ishworkh/container-image-artifact-upload@v1.0.0
+        with:
+          image: utsuki-bot:latest
 
 
   deploy:
@@ -71,6 +88,11 @@ jobs:
       run:
         shell: bash
     steps:
+      - name: Download docker image
+        uses: ishworkh/container-image-artifact-download@v1.0.0
+        with:
+          image: utsuki-bot:latest
+
       - name: run
         env:
           DISCORD_TOKEN_UTSUKI: ${{ secrets.DISCORD_TOKEN }}
