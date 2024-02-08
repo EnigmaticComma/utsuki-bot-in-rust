@@ -25,7 +25,7 @@ jobs:
         with:
           toolchain: stable
           override: true
-          target: aarch64-unknown-linux-musl
+          target: aarch64-unknown-linux-gnu
 
       - name: Configure sccache env var and set build profile to ephemeral build
         run: |
@@ -40,7 +40,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --target aarch64-unknown-linux-musl --release
+          args: --target aarch64-unknown-linux-gnu --release
 
 
   build-docker:
