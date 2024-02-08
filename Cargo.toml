@@ -14,3 +14,8 @@ rand = "0.8.5"
 [profile.release]
 strip = "symbols"
 codegen-units = 16
+
+[profile.ephemeral-build]
+opt-level = 2
+codegen-units = 8
+
