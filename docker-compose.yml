@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  utsuki-bot:
+    image: utsuki-bot
+    container_name: utsuki-bot
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        order: start-first
+        failure_action: rollback
+        delay: 5s
+    environment:
+      DISCORD_TOKEN_UTSUKI: ${ DISCORD_TOKEN_UTSUKI }
