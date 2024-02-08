@@ -46,6 +46,8 @@ jobs:
   build-docker:
     name: 'Build Docker'
     runs-on: self-hosted
+    needs:
+      - build-rust
 
     defaults:
       run:
@@ -62,6 +64,8 @@ jobs:
   deploy:
     name: 'Deploy'
     runs-on: self-hosted
+    needs:
+      - build-docker
 
     defaults:
       run:
