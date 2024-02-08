@@ -1,4 +1,5 @@
 use poise::serenity_prelude as serenity;
+use rand::Rng;
 
 struct Data {} // User data, which is stored and accessible in all command invocations
 type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -18,16 +19,13 @@ async fn age(
     Ok(())
 }
 
-#[poise::command(slash_command)]
-async fn avatar(
-    ctx: Context<'_>,
-    #[description = "User to get avatar of"] user: Option<serenity::User>,
-) -> Result<(), Error> {
-    println!("Starting avatar command!");
-    let user = user.unwrap_or_else(|| *ctx.author());
-    let avatar_url = user.face().await;
-    ctx.send(avatar_url).await?;
-    println!("{} executed avatar command!", user.name);
+/// Command to randomize a d20 dice roll:
+#[poise::command(slash_command, prefix_command)]
+async fn d20(ctx: Context<'_>) -> Result<(), Error> {
+    println!("Starting d20 command!");
+    let roll = rand::thread_rng().gen_range(1..=20);
+    ctx.say(format!("You rolled a d20 and got a {}", roll)).await?;
+    println!("{} executed d20 command!", ctx.author().name);
     Ok(())
 }
 
