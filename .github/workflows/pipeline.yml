@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: utsuki-bot
-          path: /app/target/release/utsuki-bot
+          path: /app/target/release/*
 
 
   build-docker:
