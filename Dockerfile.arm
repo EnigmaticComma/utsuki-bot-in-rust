@@ -9,5 +9,5 @@ FROM gcr.io/distroless/base-debian12:latest-arm64
 
 COPY --from=nativebuilder /tmp/ssl/ /
 ENV LD_LIBRARY_PATH /
-COPY /home/ubuntu/hd-externo/actions-runner/_work/utsuki-bot-in-rust/utsuki-bot-in-rust/target/aarch64-unknown-linux-gnu/release/utsuki-bot utsuki-bot
+COPY /home/ubuntu/hd-externo/actions-runner/_work/utsuki-bot-in-rust/utsuki-bot-in-rust/utsuki-bot/utsuki-bot utsuki-bot
 CMD ["./utsuki-bot"]
