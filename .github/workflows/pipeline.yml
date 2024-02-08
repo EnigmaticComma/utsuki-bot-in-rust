@@ -68,6 +68,7 @@ jobs:
           push: false
           tags: 'utsuki-bot'
           file: Dockerfile.arm
+          no-cache: true
 
       - name: Upload docker image
         uses: ishworkh/container-image-artifact-upload@v1.0.0
