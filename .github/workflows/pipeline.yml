@@ -62,13 +62,8 @@ jobs:
       - name: Download binary
         uses: actions/download-artifact@v4
 
-      - name: build
-        uses: docker/build-push-action@v5
-        with:
-          push: false
-          tags: 'utsuki-bot'
-          file: Dockerfile.arm
-          no-cache: true
+      - name: Build docker image
+        run: docker build -t utsuki-bot:latest -f Dockerfile.arm
 
       - name: Upload docker image
         uses: ishworkh/container-image-artifact-upload@v1.0.0
