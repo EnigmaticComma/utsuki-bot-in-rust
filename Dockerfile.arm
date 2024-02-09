@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi-minimal as nativebuilder
 
 COPY utsuki-bot utsuki-bot
-RUN chmod +x utsuki-bot
+RUN chmod 777 utsuki-bot
 
 RUN mkdir -p /tmp/ssl \
 && cp /usr/lib64/libstdc++.so.6 /tmp/ssl/libstdc++.so.6 \
