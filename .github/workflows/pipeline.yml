@@ -63,7 +63,7 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: Build docker image
-        run: docker build -t utsuki-bot:latest -f Dockerfile.arm
+        run: docker build -t utsuki-bot:latest -f Dockerfile.arm .
 
       - name: Upload docker image
         uses: ishworkh/container-image-artifact-upload@v1.0.0
