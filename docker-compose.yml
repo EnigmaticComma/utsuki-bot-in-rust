@@ -12,4 +12,4 @@ services:
         failure_action: rollback
         delay: 5s
     environment:
-      DISCORD_TOKEN_UTSUKI: ${ DISCORD_TOKEN_UTSUKI }
+      DISCORD_TOKEN_UTSUKI: $DISCORD_TOKEN_UTSUKI
