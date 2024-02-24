@@ -38,6 +38,14 @@ Agradeço às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
+      <a href="https://github.com/chrisdbhr" title="Chris">
+        <img src="https://avatars.githubusercontent.com/u/19819051?v=4" width="100px;" alt="Foto de Chris no GitHub"/><br>
+        <sub>
+          <b>Christopher Hernandez</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
       <a href="https://github.com/joojano" title="Joojano">
         <img src="https://avatars.githubusercontent.com/u/44454114?v=4" width="100px;" alt="Foto do Joojano no GitHub"/><br>
         <sub>
